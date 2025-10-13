@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  db_ms_user:
+    container_name: db_ms_user
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: usersdb
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    networks:
+      - redeecommerce
+
+  ms_user:
+    container_name: ms-user
+    build: ./ms-user
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db_ms_user
+    networks:
+      - redeecommerce
+
+volumes:
+  db_ms_user:
+
+networks:
+  redeecommerce:
+    driver: bridge
