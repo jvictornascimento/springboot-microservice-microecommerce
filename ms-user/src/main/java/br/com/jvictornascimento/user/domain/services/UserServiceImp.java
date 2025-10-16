@@ -1,12 +1,13 @@
-package br.com.jvictornascimento.user.services.user;
+package br.com.jvictornascimento.user.domain.services;
 
-import br.com.jvictornascimento.user.dtos.request.UserAdminDto;
-import br.com.jvictornascimento.user.dtos.request.UserDto;
-import br.com.jvictornascimento.user.dtos.request.UserUpdateDto;
-import br.com.jvictornascimento.user.dtos.response.UserResponseDto;
-import br.com.jvictornascimento.user.models.enums.UserType;
-import br.com.jvictornascimento.user.producers.UserProducer;
-import br.com.jvictornascimento.user.repositories.UserRepository;
+import br.com.jvictornascimento.user.api.controllers.request.UserAdminDto;
+import br.com.jvictornascimento.user.api.controllers.request.UserDto;
+import br.com.jvictornascimento.user.api.controllers.request.UserUpdateDto;
+import br.com.jvictornascimento.user.api.controllers.response.UserResponseDto;
+import br.com.jvictornascimento.user.api.mapper.UserMapper;
+import br.com.jvictornascimento.user.core.producers.UserProducer;
+import br.com.jvictornascimento.user.domain.enums.UserType;
+import br.com.jvictornascimento.user.domain.repositories.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,10 +19,10 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImp implements IUserService {
     private final UserRepository repository;
-    private final IUserMapper userMapper;
+    private final UserMapper userMapper;
     private final UserProducer producer;
 
-    public UserServiceImp(UserRepository repository, IUserMapper userMapper, UserProducer producer) {
+    public UserServiceImp(UserRepository repository, UserMapper userMapper, UserProducer producer) {
         this.repository = repository;
         this.userMapper = userMapper;
         this.producer = producer;

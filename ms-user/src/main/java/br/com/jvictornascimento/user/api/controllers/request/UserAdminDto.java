@@ -1,4 +1,4 @@
-package br.com.jvictornascimento.user.dtos.request;
+package br.com.jvictornascimento.user.api.controllers.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

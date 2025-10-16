@@ -1,6 +1,6 @@
-package br.com.jvictornascimento.user.repositories;
+package br.com.jvictornascimento.user.domain.repositories;
 
-import br.com.jvictornascimento.user.models.UserModel;
+import br.com.jvictornascimento.user.domain.models.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

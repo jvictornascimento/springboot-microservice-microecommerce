@@ -1,16 +1,13 @@
-package br.com.jvictornascimento.user.controllers;
+package br.com.jvictornascimento.user.api.controllers;
 
-import br.com.jvictornascimento.user.dtos.request.UserAdminDto;
-import br.com.jvictornascimento.user.dtos.request.UserDto;
-import br.com.jvictornascimento.user.dtos.request.UserUpdateDto;
-import br.com.jvictornascimento.user.dtos.response.UserResponseDto;
-import br.com.jvictornascimento.user.services.user.UserServiceImp;
-import jakarta.validation.Valid;
+import br.com.jvictornascimento.user.api.controllers.response.UserResponseDto;
+import br.com.jvictornascimento.user.domain.services.UserServiceImp;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.net.URI;
 import java.util.List;
 import java.util.UUID;
 

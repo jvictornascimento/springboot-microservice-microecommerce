@@ -1,7 +1,7 @@
-package br.com.jvictornascimento.user.producers;
+package br.com.jvictornascimento.user.core.producers;
 
-import br.com.jvictornascimento.user.dtos.EmailDto;
-import br.com.jvictornascimento.user.models.UserModel;
+import br.com.jvictornascimento.user.core.rabbitMQ.EmailDto;
+import br.com.jvictornascimento.user.domain.models.UserModel;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

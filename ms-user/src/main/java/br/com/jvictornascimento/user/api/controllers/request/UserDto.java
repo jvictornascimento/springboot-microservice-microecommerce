@@ -1,6 +1,6 @@
-package br.com.jvictornascimento.user.dtos.request;
+package br.com.jvictornascimento.user.api.controllers.request;
 
-import br.com.jvictornascimento.user.models.enums.UserType;
+import br.com.jvictornascimento.user.domain.enums.UserType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
