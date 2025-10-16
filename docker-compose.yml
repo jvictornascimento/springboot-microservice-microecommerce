@@ -11,6 +11,21 @@ services:
       POSTGRES_PASSWORD: root
     ports:
       - "5432:5432"
+
+    networks:
+      - redeecommerce
+
+  configserver:
+    container_name: config-server
+    build: ./config-server
+    ports:
+      - "8888:8888"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8888/actuator/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
     networks:
       - redeecommerce
 
@@ -20,12 +35,18 @@ services:
     ports:
       - "8081:8081"
     depends_on:
-      - db_ms_user
+      configserver:
+        condition: service_healthy
+      db_ms_user:
+        condition: service_started
+    restart: always
+
     networks:
       - redeecommerce
 
 volumes:
   db_ms_user:
+  configserver:
 
 networks:
   redeecommerce:
