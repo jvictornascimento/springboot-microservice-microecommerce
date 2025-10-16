@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  db_ms_user:
+    container_name: db_ms_user
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: usersdb
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+
+    networks:
+      - redeecommerce
+
+  configserver:
+    container_name: config-server
+    build: ./config-server
+    ports:
+      - "8888:8888"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8888/actuator/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - redeecommerce
+
+  ms_user:
+    container_name: ms-user
+    build: ./ms-user
+    ports:
+      - "8081:8081"
+    depends_on:
+      configserver:
+        condition: service_healthy
+      db_ms_user:
+        condition: service_started
+    restart: always
+
+    networks:
+      - redeecommerce
+
+volumes:
+  db_ms_user:
+  configserver:
+
+networks:
+  redeecommerce:
+    driver: bridge

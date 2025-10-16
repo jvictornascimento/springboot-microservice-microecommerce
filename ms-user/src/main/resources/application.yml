@@ -1,0 +1,10 @@
+spring:
+  config:
+    import: optional:configserver:http://configserver:8888
+
+  application:
+    name: ms-user
+
+  cloud:
+    config:
+      uri: http://config_server:8888

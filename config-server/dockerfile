@@ -10,6 +10,8 @@ RUN mvn clean package -DskipTests
 # ------------------------------
 FROM openjdk:17-jdk-slim
 WORKDIR /app
-COPY --from=build /app/target/user-1.0.0.jar app.jar
+COPY --from=build /app/target/config-server-1.0.0.jar app.jar
+
+RUN apt-get update && apt-get install -y curl
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
