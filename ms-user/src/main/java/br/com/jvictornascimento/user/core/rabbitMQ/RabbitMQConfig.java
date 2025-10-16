@@ -1,14 +1,11 @@
-package br.com.jvictornascimento.user.config;
+package br.com.jvictornascimento.user.core.rabbitMQ;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rabbitmq.client.AMQP;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.management.Query;
 
 @Configuration
 public class RabbitMQConfig {

@@ -1,6 +1,6 @@
-package br.com.jvictornascimento.user.models;
+package br.com.jvictornascimento.user.domain.models;
 
-import br.com.jvictornascimento.user.models.enums.UserType;
+import br.com.jvictornascimento.user.domain.enums.UserType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 

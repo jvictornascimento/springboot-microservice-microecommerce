@@ -1,4 +1,4 @@
-package br.com.jvictornascimento.user.dtos;
+package br.com.jvictornascimento.user.core.rabbitMQ;
 
 import java.util.UUID;
 

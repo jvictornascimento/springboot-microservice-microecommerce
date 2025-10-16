@@ -1,10 +1,9 @@
-package br.com.jvictornascimento.user.services.user;
+package br.com.jvictornascimento.user.domain.services;
 
-import br.com.jvictornascimento.user.dtos.request.UserAdminDto;
-import br.com.jvictornascimento.user.dtos.request.UserDto;
-import br.com.jvictornascimento.user.dtos.request.UserUpdateDto;
-import br.com.jvictornascimento.user.dtos.response.UserResponseDto;
-import org.springframework.transaction.annotation.Transactional;
+import br.com.jvictornascimento.user.api.controllers.request.UserAdminDto;
+import br.com.jvictornascimento.user.api.controllers.request.UserDto;
+import br.com.jvictornascimento.user.api.controllers.request.UserUpdateDto;
+import br.com.jvictornascimento.user.api.controllers.response.UserResponseDto;
 
 import java.util.List;
 import java.util.UUID;

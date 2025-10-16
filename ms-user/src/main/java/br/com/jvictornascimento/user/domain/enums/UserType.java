@@ -1,4 +1,4 @@
-package br.com.jvictornascimento.user.models.enums;
+package br.com.jvictornascimento.user.domain.enums;
 
 public enum UserType {
     ADMIN,
