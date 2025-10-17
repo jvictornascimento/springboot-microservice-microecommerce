@@ -1,0 +1,30 @@
+services:
+  db_user:
+    container_name: db_user
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: usersdb
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    networks:
+      - redeecommerce
+
+  ms_user:
+    container_name: ms-user
+    build: .
+    ports:
+      - "8081:8081"
+    depends_on:
+      db_user:
+        condition: service_started
+    restart: always
+
+    networks:
+      - redeecommerce
+
+networks:
+  redeecommerce:
+    driver: bridge
