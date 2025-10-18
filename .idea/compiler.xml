@@ -8,6 +8,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="user" />
         <module name="config-server" />
+      </profile>
+      <profile name="Annotation profile for ms-product-catalog" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.6.3/mapstruct-1.6.3.jar" />
+        </processorPath>
         <module name="ms-product-catalog" />
       </profile>
     </annotationProcessing>

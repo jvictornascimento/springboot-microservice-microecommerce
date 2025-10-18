@@ -1,14 +1,16 @@
 package com.jvictornascimento.msproductcatalog.domain.service;
 
-import com.jvictornascimento.msproductcatalog.domain.models.Product;
+import com.jvictornascimento.msproductcatalog.api.controllers.request.ProductRequest;
+import com.jvictornascimento.msproductcatalog.api.controllers.request.ProductUpdateRequest;
+import com.jvictornascimento.msproductcatalog.api.controllers.response.ProductResponse;
 
 import java.util.List;
 
 public interface IProductService {
-    List<Product> getAll();
-    Product getById(Long id);
-    Product saveProduct(Product product);
-    Product updateProduct(Long id , Product product);
+    List<ProductResponse> getAll();
+    ProductResponse getById(Long id);
+    ProductResponse saveProduct(ProductRequest request);
+    ProductResponse updateProduct(Long id , ProductUpdateRequest request);
     void deleteProduct(Long id);
 
 }
